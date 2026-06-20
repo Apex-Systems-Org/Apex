@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: apex-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: DEV_DISCORD_TOKEN
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: FIREBASE_CREDENTIALS_PATH
+        value: ./firebase-credentials.json
+      - key: DASHBOARD_URL
+        sync: false
